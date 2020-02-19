@@ -1,38 +1,106 @@
-.App {
+/* mobile */
+html {
+  font-size: 12px
+}
+
+/* tablet */
+@media only screen and (min-width: 600px){
+  html {
+      font-size: 14px
+  }
+}
+
+/* desktop */
+@media only screen and (min-width: 768px){
+  html {
+      font-size: 16px
+  }
+}
+
+/* Font */
+
+@font-face {
+  font-family: 'Sansation';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Sansation'), url('Sansation_Regular.woff') format('woff');
+  }
+
+/* App CSS */
+.app {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+body {
   text-align: center;
+  background-color: #373737;
+  font-family: 'Sansation', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header{
+  width: 100vw;
+  height: 10%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: white;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #EC4444;
+  font-family: Helvetica;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  justify-content: space-between;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+header img {
+  width: 10%;
+  height: 10%;
+  margin-right: 2%;
+  margin-left: 2%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-wrapper {
+  display: block;
+}
+
+h2 {
+  font-family: 'Sansation', sans-serif;
+  color: #EC4444;
+  font-size: 3rem;
+}
+
+.input-wrap {
+  width: 90%;
+  display: flex;
+}
+
+.input {
+  margin-right: 5px;
+  width: 98%
+}
+
+.poke-list {
+  margin-top: 20%;
+  display: block;
+}
+
+.pokemon-card {
+  border-radius: 5px;
+  background-color: white;
+}
+
+.image-background {
+  width: 100%;
+  height: 100%;
+}
+
+.card-data {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  height: 15px;
 }
