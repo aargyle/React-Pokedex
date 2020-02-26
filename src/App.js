@@ -45,17 +45,19 @@ function SearchBar() {
 }*/
 
 function PokeList() {
+  const pokedata = []
   for(let i = 1; i < 10; i++) {
     fetch('http://pokeapi.co/api/v2/pokemon/' + i + '/')
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        pokedata.push(data)
       })
       .catch(err => console.log(err));
   }
-  let img = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
+  console.log(pokedata)
+  //let img = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
   return <div className='poke-list'>
-    <PokemonCard name='Bulbasaur' id='#001' type='grass' image={img} />
+    {pokedata.map((d)=> <PokemonCard name={d.name} id={d.id} type={d.types} image={d.sprites.front_default} />)}
   </div>
   /*for(i = 1; i < 613; i++) {
     fetch('http://pokeapi.co/api/v2/pokemon/' + i + '/')
