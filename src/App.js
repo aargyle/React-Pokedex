@@ -45,6 +45,14 @@ function SearchBar() {
 }*/
 
 function PokeList() {
+  for(let i = 1; i < 10; i++) {
+    fetch('http://pokeapi.co/api/v2/pokemon/' + i + '/')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => console.log(err));
+  }
   let img = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
   return <div className='poke-list'>
     <PokemonCard name='Bulbasaur' id='#001' type='grass' image={img} />
