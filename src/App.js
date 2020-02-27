@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Div100vh from 'react-div-100vh';
 import PokemonCard from './PokemonCard.js';
@@ -45,32 +45,25 @@ function SearchBar() {
 }*/
 
 function PokeList() {
-  const pokedata = []
-  for(let i = 1; i < 10; i++) {
-    fetch('http://pokeapi.co/api/v2/pokemon/' + i + '/')
-      .then(res => res.json())
-      .then(data => {
-        pokedata.push(data)
-      })
-      .catch(err => console.log(err));
-  }
-  console.log(pokedata)
-  //let img = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
+  const [pokedata, setPokedata] = useState([])
+  useEffect(()=>{
+    for(let i = 1; i < 152; i++) {
+      fetch('http://pokeapi.co/api/v2/pokemon/' + i + '/')
+        .then(res => res.json())
+        .then(data => {
+          setPokedata(current=>{
+            const sortedData = [...current, data]
+            sortedData.sort((a,b)=> a.id-b.id)
+            return sortedData
+          })
+        })
+        .catch(err => console.log(err));
+    }
+  }, [])
+
   return <div className='poke-list'>
-    {pokedata.map((d)=> <PokemonCard name={d.name} id={d.id} type={d.types} image={d.sprites.front_default} />)}
+    {pokedata.map((data, i)=> <PokemonCard key={i} name={data.name} id={data.id} type={data.types} image={data.sprites.front_default} />)}
   </div>
-  /*for(i = 1; i < 613; i++) {
-    fetch('http://pokeapi.co/api/v2/pokemon/' + i + '/')
-      .then(res => res.json())
-      .then(data => {
-        const pokemon = new Pokemon(data);
-      })
-      .catch(err => console.log(err));
-  }
-    <div className='pokelist'>
-      {messages.map((m, i)=> <Pokemon key={i} m={m} name={name} />)}
-    </div>
-  */
 }
 
 export default App;
