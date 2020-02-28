@@ -8,9 +8,11 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
+    "pokemon-gif": "^1.0.14",
     "react": "^16.12.0",
     "react-div-100vh": "^0.3.8",
     "react-dom": "^16.12.0",
+    "react-poke-sprites": "0.0.8",
     "react-scripts": "3.3.1"
   },
   "scripts": {

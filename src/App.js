@@ -1,17 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import Div100vh from 'react-div-100vh';
 import PokemonCard from './PokemonCard.js';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {Search} from '@material-ui/icons';
+import DetailView from './DetailView.js';
 
 function App() {
+  const [showDetails, setShowDetails] = useState(false)
+
   return (
-    <Div100vh className='app'>
+    <div className='app'>
       <Header />
       <PokeList />
-    </Div100vh>
+      <DetailView name='bulbasaur' type='grass' category='seed' height='3' weight='1' id='1' />
+    </div>
   );
 }
 
@@ -25,7 +28,7 @@ function Header() {
     </header>
   </div>
 }
-/*
+
 function SearchBar() {
   const [text, setText] = useState('')
   return (
@@ -42,12 +45,12 @@ function SearchBar() {
     </Button>
   </div>
   );
-}*/
+}
 
 function PokeList() {
   const [pokedata, setPokedata] = useState([])
   useEffect(()=>{
-    for(let i = 1; i < 152; i++) {
+    for(let i = 1; i < 10; i++) {
       fetch('http://pokeapi.co/api/v2/pokemon/' + i + '/')
         .then(res => res.json())
         .then(data => {
