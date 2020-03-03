@@ -28,8 +28,11 @@ html {
 
 /* App CSS */
 .app {
-  position: absolute;
-  top: 0;
+  display: flex;
+  width: 100%;
+}
+
+.content {
   width: 100%;
 }
 
@@ -58,10 +61,10 @@ header{
 }
 
 header img {
-  width: 10%;
-  height: 10%;
-  margin-right: 2%;
-  margin-left: 2%;
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1vw;
+  margin-left: 1vw;
 }
 
 .header-wrapper {
@@ -74,9 +77,16 @@ h2 {
   font-size: 3rem;
 }
 
+h5 {
+  font-size: 1rem;
+}
+
 .input-wrap {
-  width: 90%;
+  width: 90vw;
   display: flex;
+  margin-top: 13vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .input {
@@ -85,10 +95,8 @@ h2 {
 }
 
 .poke-list {
-  width: 90vw;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  margin-top: 10vh;
+  max-width: 90vw;
+  margin-top: 12vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -104,4 +112,64 @@ h2 {
   width: 100%;
   justify-content: space-between;
   height: 15px;
+}
+
+.detail-card {
+  margin-top: 12vh;
+  width: 65%;
+  height: 60%;
+  margin-right: 5vw;
+  border-radius: 15px;
+  background-color: #EC4444;
+  display: flex;
+  flex-direction: column;
+}
+
+.upper-details {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.stats {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.flavor-text {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.detail-image {
+  margin: 20px;
+  width: 40%;
+  height: 70%;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.detail-image img {
+  height: 70%;
+  width: 70%;
+}
+
+p {
+  color: #373737;
+  size: 1rem;
+}
+
+.line {
+  display: flex;
+  height: 1.5rem;
+}
+
+.stats-details {
+  color: white;
+  margin-left: 5px;
 }

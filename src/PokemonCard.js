@@ -8,7 +8,8 @@ const useStyles = makeStyles({
     root: {
         width: 156,
         height: 156,
-        margin: 10,
+		marginBottom: 10,
+		marginRight: 10,
     },
     media: {
         height: 100,
@@ -36,7 +37,7 @@ const useStyles = makeStyles({
 });
 
 function PokemonCard(props) {
-   const classes = useStyles();
+    const classes = useStyles();
 	
 	// add formatting to id
 	let idstring = props.id
@@ -54,7 +55,7 @@ function PokemonCard(props) {
 
 	// change background color and abbreviate type
 	let bgcolor = '#FFFFFF';
-   let typeShort = '';
+    let typeShort = '';
 	let type = props.type[0]['type']['name'] //could just use the second elements in array, then get rid of first if statement
 	
 	if (type === 'grass') {
