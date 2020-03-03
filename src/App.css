@@ -41,8 +41,9 @@ body {
 
 header{
   width: 100%;
-  height: 10%;
-  position: absolute;
+  height: 10vh;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
   background-color: white;

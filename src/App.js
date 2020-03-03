@@ -47,7 +47,7 @@ function SearchBar() {
 function PokeList() {
   const [pokedata, setPokedata] = useState([])
   useEffect(()=>{
-    for(let i = 1; i < 152; i++) {
+    for(let i = 1; i < 100; i++) {
       fetch('http://pokeapi.co/api/v2/pokemon/' + i + '/')
         .then(res => res.json())
         .then(data => {
