@@ -9,7 +9,6 @@ const useStyles = makeStyles({
         width: 156,
         height: 156,
 		marginBottom: 10,
-		marginRight: 10,
     },
     media: {
         height: 100,
@@ -119,63 +118,63 @@ function PokemonCard(props) {
 		type = props.type[1]['type']['name']
 		if (type === 'grass') {
 			bgcolor = 'linear-gradient(145deg, #98FF87 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'GRS' + '/' + typeShort
+			typeShort = 'GRS/' + typeShort
 		} else if (type === 'fire') {
 			bgcolor = 'linear-gradient(145deg, #FDA777 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'FIR' + '/' + typeShort
+			typeShort = 'FIR/' + typeShort
 		} else if (type === 'water') {
 			bgcolor = 'linear-gradient(145deg, #9DEDFF 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'WTR' + '/' + typeShort
+			typeShort = 'WTR/' + typeShort
 		} else if (type === 'normal') {
 			bgcolor = 'linear-gradient(145deg, #D3C969 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'NRM' + '/' + typeShort
+			typeShort = 'NRM/' + typeShort
 		} else if (type === 'ice') {
 			bgcolor = 'linear-gradient(145deg, #B9F6F6 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'ICE' + '/' + typeShort
+			typeShort = 'ICE/' + typeShort
 		} else if (type === 'bug') {
 			bgcolor = 'linear-gradient(145deg, #CADC33 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'BUG' + '/' + typeShort
+			typeShort = 'BUG/' + typeShort
 		} else if (type === 'fighting') {
 			bgcolor = 'linear-gradient(145deg, #EA5850 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'FGT' + '/' + typeShort
+			typeShort = 'FGT/' + typeShort
 		} else if (type === 'flying') {
 			bgcolor = 'linear-gradient(145deg, #CBBEF1 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'FLY' + '/' + typeShort
+			typeShort = 'FLY/' + typeShort
 		} else if (type === 'poison') {
 			bgcolor = 'linear-gradient(145deg, #DD78DD 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'PSN' + '/' + typeShort
+			typeShort = 'PSN/' + typeShort
 		} else if (type === 'ground') {
 			bgcolor = 'linear-gradient(145deg, #EFD58B 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'GRD' + '/' + typeShort
+			typeShort = 'GRD/' + typeShort
 		} else if (type === 'psychic') {
 			bgcolor = 'linear-gradient(145deg, #FFA3BE 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'PSY' + '/' + typeShort
+			typeShort = 'PSY/' + typeShort
 		} else if (type === 'rock') {
 			bgcolor = 'linear-gradient(145deg, #DDB400 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'RCK' + '/' + typeShort
+			typeShort = 'RCK/' + typeShort
 		} else if (type === 'ghost') {
 			bgcolor = 'linear-gradient(145deg, #9473CA 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'GHT' + '/' + typeShort
+			typeShort = 'GHT/' + typeShort
 		} else if (type === 'dragon') {
 			bgcolor = 'linear-gradient(145deg, #7038F8 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'DRG' + '/' + typeShort
+			typeShort = 'DRG/' + typeShort
 		} else if (type === 'dark') {
 			bgcolor = 'linear-gradient(145deg, #8F8F8F 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'DRK' + '/' + typeShort
+			typeShort = 'DRK/' + typeShort
 		} else if (type === 'steel') {
 			bgcolor = 'linear-gradient(145deg, #B8B8D0 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'STL' + '/' + typeShort
+			typeShort = 'STL/' + typeShort
 		} else if (type === 'steel') {
 			bgcolor = 'linear-gradient(145deg, #FF9EF5 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'FRY' + '/' + typeShort
+			typeShort = 'FRY/' + typeShort
 		} else if (type === 'electric') {
 			bgcolor = 'linear-gradient(145deg, #FCFF76 30%, ' + bgcolor + ' 70%)'
-			typeShort = 'ELC' + '/' + typeShort
+			typeShort = 'ELC/' + typeShort
 		}
 	}
 
    return <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea onClick={() => props.onClick(props.id)}>
         <div className={classes.media} style={{background: bgcolor}}>
 			  <img src={props.image} alt={name} className={classes.img} />
         </div>

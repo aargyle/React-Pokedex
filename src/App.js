@@ -7,13 +7,57 @@ import {Search} from '@material-ui/icons';
 import DetailView from './DetailView.js';
 
 function App() {
-  const [showDetails, setShowDetails] = useState(false)
+  const [detailIndex, setIndex] = useState(null)
+  const [pokedata, setPokedata] = useState([])
+  useEffect(()=>{
+    for(let i = 1; i < 10; i++) {
+      fetch('http://pokeapi.co/api/v2/pokemon/' + i + '/')
+        .then(res => res.json())
+        .then(data => {
+          setPokedata(current=>{
+            const sortedData = [...current, data]
+            sortedData.sort((a,b)=> a.id-b.id)
+            return sortedData
+          })
+        })
+        .catch(err => console.log(err));
+    }
+  }, [])
+
+  let details = {}
+  let showDetails = false
+  if (detailIndex || detailIndex === 0) {
+    details = pokedata[detailIndex]
+    showDetails = true
+  }
+
+  let pokeClass = 'poke-list'
+  let detailClass = 'detail-card'
+  let isMobile = false
+  if (window.innerWidth < 600) {
+    isMobile = true
+  }
+  // change pokelist CSS if detailview there
+  // style={{width: showDetails ? 'calc(100vw - 300px)': '100vw'}
+  // change classname conditionally
+  if (showDetails && !isMobile) {
+    pokeClass = 'poke-list-detail'
+  }
+
+  // change CSS if mobile screen 
+  // window.innerWidth < 600
+  if (showDetails && isMobile) {
+    console.log('change class')
+    detailClass = 'detail-card-mobile'
+  }
 
   return (
     <div className='app'>
       <Header />
-      <PokeList />
-      <DetailView name='bulbasaur' type='grass' category='seed' height='3' weight='1' id='1' />
+      <div className={pokeClass}>
+        {pokedata.map((data, i)=> <PokemonCard onClick={() => setIndex(i)} key={i} name={data.name} id={data.id} type={data.types} image={data.sprites.front_default} />)}
+      </div>
+      {showDetails && <DetailView className={detailClass} onClick={() => setIndex(null)} {...details} />}
     </div>
   );
 }
@@ -46,7 +90,7 @@ function SearchBar() {
   </div>
   );
 }
-
+/*
 function PokeList() {
   const [pokedata, setPokedata] = useState([])
   useEffect(()=>{
@@ -67,6 +111,6 @@ function PokeList() {
   return <div className='poke-list'>
     {pokedata.map((data, i)=> <PokemonCard key={i} name={data.name} id={data.id} type={data.types} image={data.sprites.front_default} />)}
   </div>
-}
+}*/
 
 export default App;
