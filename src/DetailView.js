@@ -9,9 +9,17 @@ function DetailView(props) {
         .then(res => res.json())
         .then(data => {
             setData(() =>{
-                let flavorText = data['flavor_text_entries'][1]['flavor_text']
-                flavorText = flavorText.replace( /[\r\n]+/gm, "" );
                 let category = data['genera'][2]['genus'].split(' ')[0]
+                // make sure flavor text is in english
+                let flavorText
+                
+                let i = 0
+                while (data['flavor_text_entries'][i]['language']['name'] !== 'en') {
+                    i++;
+                }
+
+                flavorText = data['flavor_text_entries'][i]['flavor_text']
+                flavorText = flavorText.replace( /[\r\n]+/gm, " " );
                 return [flavorText, category]
             })
         })
@@ -40,7 +48,17 @@ function DetailView(props) {
     let weight = props.weight / 4.536
     weight = weight.toFixed(2) + ' lbs'
 
-    let gifURL = pokemonGif(props.name)
+    let gifURL
+    if (props.name === 'nidoran-f') {
+        name = 'Nidoran-F'
+        gifURL = pokemonGif(29)
+    } else if (props.name === 'nidoran-m') {
+        name = 'Nidoran-M'
+        gifURL = pokemonGif(32)
+    } else {
+        gifURL = pokemonGif(props.name)
+    }
+
     return <div className={props.className}>
         <div className='upper-details'>
             <div className='detail-image'>

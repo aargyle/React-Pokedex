@@ -50,7 +50,13 @@ function PokemonCard(props) {
 
 	// capitalize first letter of name
 	let name = props.name
-	name = name.charAt(0).toUpperCase() + name.substring(1)
+	if (props.name === 'nidoran-f') {
+		name = 'Nidoran-F'
+  } else if (props.name === 'nidoran-m') {
+		name = 'Nidoran-M'
+  } else {
+		name = name.charAt(0).toUpperCase() + name.substring(1)
+  }
 
 	// change background color and abbreviate type
 	let bgcolor = '#FFFFFF';
