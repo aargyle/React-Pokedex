@@ -45,7 +45,7 @@ function App() {
   
   useEffect(()=>{
     for(let i = 1; i < 101; i++) {
-      fetch('//pokeapi.co/api/v2/pokemon/' + i + '/')
+      fetch('https://pokeapi.co/api/v2/pokemon/' + i + '/')
         .then(res => res.json())
         .then(data => {
           setPokedata(current=>{

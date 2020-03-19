@@ -5,7 +5,7 @@ import CloseIcon from '@material-ui/icons/Close';
 function DetailView(props) {
     const [speciesData, setData] = useState([])
     useEffect(()=>{
-        fetch('//pokeapi.co/api/v2/pokemon-species/' + props.id + '/')
+        fetch('https://pokeapi.co/api/v2/pokemon-species/' + props.id + '/')
         .then(res => res.json())
         .then(data => {
             setData(() =>{
